@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="auth.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="form-switcher">
+            <button id="traveler-login-btn" class="active">Путешественник</button>
+            <button id="guide-login-btn">Гид</button>
+        </div>
+
+  
+
+        <div id="guide-login-form" class="login-form">
+            <h1 id="login-heading">Авторизация (путешественник)</h1>
+            <form>
+                <div class="form-group">
+                    <label for="guide-username">Эл. почта</label>
+                    <input type="text" id="guide-username" name="admin-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="guide-password">Пароль</label>
+                    <input type="password" id="guide-password" name="guide-password" required>
+                </div>
+                <button type="submit">Войти</button>
+                <p>Нет аккаунта? <a href="../regestration/regestration.html">Зарегистрироваться</a></p>
+            </form>
+        </div>
+
+    </div>
+
+    <script>
+        const travelerLoginBtn = document.getElementById('traveler-login-btn');
+        const guideLoginBtn = document.getElementById('guide-login-btn');
+        const loginHeading = document.getElementById('login-heading') 
+
+        travelerLoginBtn.addEventListener('click', () => {
+            travelerLoginBtn.classList.add('active');
+            guideLoginBtn.classList.remove('active');
+            loginHeading.textContent = "Авторизация (путешественник)"
+        });
+
+        guideLoginBtn.addEventListener('click', () => {
+            guideLoginBtn.classList.add('active');
+            travelerLoginBtn.classList.remove('active');
+            loginHeading.textContent ="Авторизация (гид)"
+        });
+    </script>
+
+</body>
+</html>
